@@ -2,7 +2,7 @@ package programmers.problems2;
 
 import java.util.Arrays;
 
-public class MakeBigNumber_12_25 {
+public class Yet_MakeBigNumber_12_25 {
     public static void main(String[] args) {
         String numbers = "1924";
         int k = 2;
@@ -25,13 +25,16 @@ public class MakeBigNumber_12_25 {
     public static void recurse(int count, String comparsion, int lastIndex, String std, int length, String[] arr ){
         int k = count-1;
         int startIndex = lastIndex+1;
+        String temp = new String(comparsion);
         for (int i = startIndex; i<length-(k+1); i++){
             comparsion += arr[i];
             if(k>1){
                 recurse(k, comparsion, startIndex, std, length, arr);
             }else {
                 if(Integer.parseInt(std)<Integer.parseInt(comparsion)){
-                    std = comparsion;
+
+                    std = new String(comparsion);
+                    comparsion = new String(temp);
                 }
             }
         }
